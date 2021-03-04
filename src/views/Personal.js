@@ -18,7 +18,7 @@ const Personal = () => {
     const personal = useContextSelector(AppContext, ctx => ctx.appState.personal);
     const dispatch = useContextSelector(AppContext, ctx => ctx.dispatch);
     const onChange = handleFormChange(dispatch);
-    
+
 
     useEffect(() => {
         return () => {
@@ -46,7 +46,7 @@ const Personal = () => {
             >
                 <Space direction="vertical" size={32}>
                     <Row gutter={16}>
-                        <Col lg={{ span: 12 }}>
+                        <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 24 }}>
                             <Form.Item
                                 name="firstName"
                                 label="First Name"
@@ -61,7 +61,7 @@ const Personal = () => {
                                 <Input />
                             </Form.Item>
                         </Col>
-                        <Col lg={{ span: 12 }}>
+                        <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 24 }}>
                             <Form.Item
                                 name="lastName"
                                 label="Last Name"
@@ -69,7 +69,7 @@ const Personal = () => {
                                 <Input />
                             </Form.Item>
                         </Col>
-                        <Col lg={{ span: 24 }}>
+                        <Col span="24">
                             <Form.Item
                                 name="profession"
                                 label="Profession"
@@ -84,7 +84,7 @@ const Personal = () => {
                                 <Input />
                             </Form.Item>
                         </Col>
-                        <Col lg={{ span: 12 }}>
+                        <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 24 }}>
                             <Form.Item
                                 name="city"
                                 label="City"
@@ -99,9 +99,9 @@ const Personal = () => {
                                 <Input />
                             </Form.Item>
                         </Col>
-                        <Col lg={{ span: 12 }}>
+                        <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 24 }}>
                             <Row gutter={16}>
-                                <Col lg={{ span: 12 }}>
+                                <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 12 }}>
                                     <Form.Item
                                         name="stateOrProvince"
                                         label="State/Province"
@@ -109,7 +109,7 @@ const Personal = () => {
                                         <Input />
                                     </Form.Item>
                                 </Col>
-                                <Col lg={{ span: 12 }}>
+                                <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 12 }}>
                                     <Form.Item
                                         name="zipCode"
                                         label="Zip Code"
@@ -119,7 +119,7 @@ const Personal = () => {
                                 </Col>
                             </Row>
                         </Col>
-                        <Col lg={{ span: 12 }}>
+                        <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 24 }}>
                             <Form.Item
                                 name="phone"
                                 label="Phone"
@@ -134,7 +134,7 @@ const Personal = () => {
                                 <Input />
                             </Form.Item>
                         </Col>
-                        <Col lg={{ span: 12 }}>
+                        <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 24 }}>
                             <Form.Item
                                 name="email"
                                 label="Email Address"
@@ -149,14 +149,14 @@ const Personal = () => {
                                 <Input />
                             </Form.Item>
                         </Col>
-                        <Col lg={{ span: 24 }}>
+                        <Col span="24">
                             <Form.List name="socialLinks">
                                 {(fields, { add, remove }) => (
                                     <Row>
-                                        <Col lg={{ span: 24 }}>
+                                        <Col span="24">
                                             {fields.map((field, i) => (
                                                 <Row key={i} gutter={16}>
-                                                    <Col lg={{ span: 12 }}>
+                                                    <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 12 }}>
                                                         <Form.Item
                                                             {...field}
                                                             name={[field.name, 'website']}
@@ -166,7 +166,7 @@ const Personal = () => {
                                                             <Input placeholder="Social Website" />
                                                         </Form.Item>
                                                     </Col>
-                                                    <Col lg={{ span: 12 }}>
+                                                    <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 12 }}>
                                                         <Form.Item
                                                             {...field}
                                                             name={[field.name, 'link']}

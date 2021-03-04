@@ -1,4 +1,4 @@
-import { Row, Col, Form, Input, Typography, DatePicker, Checkbox } from "antd";
+import { Row, Col, Form, Input, DatePicker, Checkbox } from "antd";
 import Editor from 'ckeditor4-react';
 import { useContextSelector } from 'use-context-selector';
 import AppContext from "../context/App";
@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import { ADD_EXPERIENCE, EDIT_EXPERIENCE } from "../context/Types";
 import { parseArrayToListMarkup } from "../utils/form";
 import moment from "moment";
-import editorConfig from "../constants/editor-basic.config"
+import editorConfig from "../constants/editor-basic.config";
+import PageTitle from "../components/PageTitle";
 
 const formItemLayout = {
     labelCol: { span: 24 },
@@ -61,8 +62,9 @@ const Experience = ({ match }) => {
 
     return (
         <>
-            <Typography.Title level={2} className="text-primary">Tell us about your most recent job</Typography.Title>
-            <Typography.Title level={4}>We’ll put your work history in the right order.</Typography.Title>
+            <PageTitle
+                title="Tell us about your most recent job"
+                subtitle="We’ll put your work history in the right order." />
             <Form
                 {...formItemLayout}
                 form={form}
@@ -74,7 +76,7 @@ const Experience = ({ match }) => {
                 layout="vertical"
             >
                 <Row gutter={16}>
-                    <Col lg={{ span: 12 }}>
+                    <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 24 }}>
                         <Form.Item
                             name="title"
                             label="Job Title"
@@ -89,7 +91,7 @@ const Experience = ({ match }) => {
                             <Input />
                         </Form.Item>
                     </Col>
-                    <Col lg={{ span: 12 }}>
+                    <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 24 }}>
                         <Form.Item
                             name="employer"
                             label="Employer"
@@ -104,7 +106,7 @@ const Experience = ({ match }) => {
                             <Input />
                         </Form.Item>
                     </Col>
-                    <Col lg={{ span: 12 }}>
+                    <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 24 }}>
                         <Form.Item
                             name="city"
                             label="City"
@@ -112,7 +114,7 @@ const Experience = ({ match }) => {
                             <Input />
                         </Form.Item>
                     </Col>
-                    <Col lg={{ span: 12 }}>
+                    <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 24 }}>
                         <Form.Item
                             name="state"
                             label="State"
@@ -132,7 +134,7 @@ const Experience = ({ match }) => {
                             />
                         </Form.Item>
                     </Col>
-                    <Col lg={{ span: 12 }}>
+                    <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 24 }}>
                         <Form.Item
                             name="startDate"
                             label="Start Date"
@@ -147,7 +149,7 @@ const Experience = ({ match }) => {
                             <DatePicker placeholder="Select" style={{ width: "100%" }} />
                         </Form.Item>
                     </Col>
-                    <Col lg={{ span: 12 }}>
+                    <Col lg={{ span: 12 }} md={{ span: 12 }} sm={{ span: 12 }} xs={{ span: 24 }}>
                         <Form.Item
                             name="endDate"
                             label="End Date"

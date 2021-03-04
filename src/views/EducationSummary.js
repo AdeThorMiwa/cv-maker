@@ -1,6 +1,6 @@
-import { Typography, Button, Row, Col, Empty } from "antd";
+import { Button, Row, Col, Empty } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
-import { EducationCard } from "./../components";
+import { EducationCard, PageTitle } from "./../components";
 import { useContextSelector } from 'use-context-selector';
 import AppContext from "../context/App";
 import { DELETE_EDUCATION } from "../context/Types";
@@ -11,7 +11,7 @@ const EducationSummary = ({ history }) => {
 
     return (
         <>
-            <Typography.Title level={2} className="text-primary">Education summary</Typography.Title>
+            <PageTitle title="Education summary" />
             <Row style={{ margin: "32px 0" }}>
                 {education.length ? education.map((edu, i) => (
                     <Col span="24" style={{ marginBottom: 16 }} key={i}>

@@ -1,20 +1,11 @@
-import { Row, Col, Form, Input, Typography, Select, Button, Rate, Divider } from "antd";
-import { MinusCircleOutlined, PlusOutlined, FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
+import { Row, Col, Form, Input, Select, Button, Rate, Divider } from "antd";
+import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { useState, useEffect } from "react";
 import { useContextSelector } from 'use-context-selector';
 import AppContext from "../context/App";
 import { UPDATE_SKILLS } from "../context/Types";
-import skillsSuggestions from "./../constants/skillsSuggestions";
-
-const customIcons = {
-    1: <FrownOutlined />,
-    2: <FrownOutlined />,
-    3: <MehOutlined />,
-    4: <SmileOutlined />,
-    5: <SmileOutlined />,
-};
-
-const desc = ['terrible', 'bad', 'normal', 'good', 'excellent'];
+import { desc, customIcons, suggestions as skillsSuggestions } from "./../constants/skill";
+import { PageTitle } from "../components";
 
 const Skills = () => {
     const [suggestions, setSuggestions] = useState([...skillsSuggestions]);
@@ -61,19 +52,21 @@ const Skills = () => {
 
     return (
         <>
-            <Typography.Title level={2} className="text-primary">What skills do you want to highlight?</Typography.Title>
-            <Typography.Title level={4}>Use our expert recommendations below to get started.</Typography.Title>
+            <PageTitle
+                title="What skills do you want to highlight?"
+                subtitle="Use our expert recommendations below to get started." />
+
             <form style={{ marginTop: 32 }}>
                 {skills.map((skill, index) => (
                     <Row gutter={16} key={index} style={{ alignItems: "center" }}>
-                        <Col span="5" style={{ minWidth: 150 }}>
+                        <Col lg={{ span: 10 }} md={{ span: 10 }} sm={{ span: 10 }} xs={{ span: 24 }}>
                             <Rate
                                 tooltips={desc}
                                 onChange={(value) => handleChange("rating", value, index)}
                                 value={skill.rating}
                                 character={({ index }) => customIcons[index + 1]} />
                         </Col>
-                        <Col lg={{ span: 12 }} style={{ margin: 8 }}>
+                        <Col lg={{ span: 14 }} md={{ span: 14 }} className="mt" sm={{ span: 14 }} xs={{ span: 24 }}>
                             <Select
                                 size="large"
                                 value={skill.title}

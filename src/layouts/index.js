@@ -7,7 +7,7 @@ const WithLayout = ({
     component: Component,
     ...rest
 }) => {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     return (
         <Route
             {...rest}

@@ -1,0 +1,1 @@
+export const MenuItems = ["Personal", "Experience", "Education", "Skills", "Summary", "Finalize", "Preview"]

@@ -1,5 +1,6 @@
-import { UPDATE_PERSONAL, INPUT_UPDATE, ADD_EXPERIENCE, EDIT_EXPERIENCE, DELETE_EXPERIENCE, ADD_EDUCATION, EDIT_EDUCATION, DELETE_EDUCATION, UPDATE_SKILLS } from "./Types";
+import { UPDATE_PERSONAL, SET_TEMPLATE, OPEN_SIDEBAR, CLOSE_SIDEBAR, INPUT_UPDATE, ADD_EXPERIENCE, EDIT_EXPERIENCE, DELETE_EXPERIENCE, ADD_EDUCATION, EDIT_EDUCATION, DELETE_EDUCATION, UPDATE_SKILLS } from "./Types";
 import { parseMarkUpListToArray } from "./../utils/form";
+import { APP_STATE } from "./InitialState";
 
 const Reducer = (state, action) => {
     const { type, payload } = action;
@@ -15,6 +16,29 @@ const Reducer = (state, action) => {
                     ...state[payload.target],
                     [payload.nest]: payload.value
                 } : payload.value
+            };
+
+        case SET_TEMPLATE:
+            return {
+                ...state,
+                selectedTemplate: payload
+            };
+
+        case OPEN_SIDEBAR:
+            return {
+                ...state,
+                sidebarOpen: true
+            };
+
+        case CLOSE_SIDEBAR:
+            return {
+                ...state,
+                sidebarOpen: false
+            };
+
+        case "DONE":
+            return {
+                ...APP_STATE
             };
 
         /**

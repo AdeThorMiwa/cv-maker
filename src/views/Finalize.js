@@ -1,5 +1,6 @@
-import { Typography, Button } from "antd";
+import { Button } from "antd";
 import { useState } from "react";
+import { PageTitle } from "../components";
 import { AffiliationModal, CertificationModal, InterestModal } from "./../components/modals";
 
 const Finalize = () => {
@@ -19,7 +20,7 @@ const Finalize = () => {
 
     return (
         <>
-            <Typography.Title level={2} className="text-primary">Add additional sections to your resume</Typography.Title>
+            <PageTitle title="Add additional sections to your resume" />
             <div className="d-flex" style={{ flexDirection: "column" }}>
                 <Button type="primary" className="additional-buttons" onClick={() => showModal("affiliation")}>Add Affiliations</Button>
                 <Button type="primary" className="additional-buttons" onClick={() => showModal("certification")}>Add Certifications</Button>

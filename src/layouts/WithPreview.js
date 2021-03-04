@@ -1,7 +1,10 @@
 import { Row, Col } from "antd";
 import WithControlsLayout from "./WithControls";
+import useMedia from "../hooks/useMedia";
+import { RenderTemplate } from "../components";
 
 const WithPreview = ({ children, ...rest }) => {
+    const { md } = useMedia();
 
     return (
         <WithControlsLayout isPreview {...rest}>
@@ -9,7 +12,13 @@ const WithPreview = ({ children, ...rest }) => {
                 <Col lg={{ span: 16 }}>
                     {children}
                 </Col>
-                <Col lg={{ span: 8 }}> Preview</Col>
+                {!md && (
+                    <Col lg={{ span: 8 }}>
+                        <div>
+                            <RenderTemplate size="sm" />
+                        </div>
+                    </Col>
+                )}
             </Row>
         </WithControlsLayout>
     );

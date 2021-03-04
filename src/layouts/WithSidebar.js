@@ -1,24 +1,15 @@
-import { Row, Col, Menu } from "antd";
+import { Row, Col } from "antd";
 import WithControlsLayout from "./WithControls";
-import { useHistory } from "react-router-dom";
-
-const MenuItems = ["Personal", "Experience", "Education", "Skills", "Summary", "Finalize", "Preview"]
+import { Sidebar } from "./../components"
 
 const WithSidebar = ({ children, ...rest }) => {
-    const history = useHistory()
     return (
         <WithControlsLayout {...rest}>
             <Row gutter="32">
-                <Col span="8">
-                    <Menu
-                        mode="inline"
-                        defaultSelectedKeys={['7']}
-                        style={{ position: "sticky", top: 50 }}
-                    >
-                        {MenuItems.map((item, i) => <Menu.Item onClick={() => history.push(`/${item.toLowerCase()}`)} key={++i}>{item}</Menu.Item>)}
-                    </Menu>
+                <Col lg={{ span: 6 }} md={{ span: 6 }}>
+                    <Sidebar />
                 </Col>
-                <Col span="16">
+                <Col lg={{ span: 18 }} md={{ span: 18 }} sm={{ span: 24 }} xs={{ span: 24 }}>
                     {children}
                 </Col>
             </Row>

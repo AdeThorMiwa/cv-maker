@@ -1,5 +1,8 @@
 // general
 export const INPUT_UPDATE = "INPUT_UPDATE";
+export const SET_TEMPLATE = "SET_TEMPLATE";
+export const OPEN_SIDEBAR = "OPEN_SIDEBAR";
+export const CLOSE_SIDEBAR = "CLOSE_SIDEBAR";
 
 // Personal
 export const UPDATE_PERSONAL = "UPDATE_PERSONAL";
