@@ -14,7 +14,7 @@ const WithLayout = ({
             render={(otherProps) => (
                 <Layout {...rest} title={title}>
                     <Helmet>
-                        <title>Builder - {title}</title>
+                        <title>Buildr - {title}</title>
                     </Helmet>
                     <Component {...otherProps} {...rest} title={title} />
                 </Layout>

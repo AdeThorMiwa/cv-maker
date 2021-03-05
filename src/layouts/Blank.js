@@ -14,7 +14,7 @@ const Main = ({ children }) => {
                 {children}
             </Layout.Content>
             <Layout.Footer className="footer text-primary text-center text-small">
-                © 2021, Builders Limited. All rights reserved.
+                © 2021, Buildr Limited. All rights reserved.
             </Layout.Footer>
         </Layout>
     );
