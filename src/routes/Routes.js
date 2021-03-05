@@ -3,6 +3,7 @@ import { useContextSelector } from 'use-context-selector';
 import AppContext from "../context/App";
 import {
     LandingView,
+    TemplatesView,
     PersonalView,
     ExperienceView,
     ExperienceSummaryView,
@@ -30,6 +31,12 @@ const Routes = () => {
                 exact
                 component={LandingView}
                 path="/"
+            />
+            <WithLayout
+                layout={BlankLayout}
+                title="Select a Template"
+                component={TemplatesView}
+                path="/select-template"
             />
             <WithLayout
                 layout={WithPreviewLayout}

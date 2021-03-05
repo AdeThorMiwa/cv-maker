@@ -1,0 +1,47 @@
+#template-list-banner {
+    background: #F6F8FA
+}
+
+#contain-up-down {
+    padding-top: 50px;
+    padding-bottom: 8px;
+}
+
+#banner-text {
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+@media (max-width: 500px) {
+    #banner-text {
+        font-weight: bold;
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 760px) {
+    #banner-text {
+        font-weight: bold;
+        font-size: 3rem;
+    }
+}
+
+#select-btn {
+    background: #398ff1;
+    padding-right: 75px;
+    padding-left: 75px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    border-radius: 28px;
+    margin-top: -42px;
+    margin-bottom: 58px;
+    cursor: pointer;
+}
+
+#select-btn:hover {
+    background: #66a8f3;
+}

@@ -18,7 +18,9 @@ export const APP_STATE = {
     experience: [],
     education: [],
     skills: [],
-    others: {}
+    others: {},
+    arrayOfFive: [1, 2, 3, 4, 5],
+    shit: "dsfsadf"
 }
 
 const INITIAL_APP_STATE = JSON.parse(localStorage.getItem("Builder__AppState")) || APP_STATE;

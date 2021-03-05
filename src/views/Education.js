@@ -113,7 +113,7 @@ const Education = ({ match }) => {
                                     option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                                 }
                             >
-                                {degreeOptions.map(degree => (<Select.Option value={degree}>{underscoreToCapitalize(degree)}</Select.Option>))}
+                                {degreeOptions.map(degree => (<Select.Option key={degree} value={degree}>{underscoreToCapitalize(degree)}</Select.Option>))}
                             </Select>
                         </Form.Item>
                     </Col>

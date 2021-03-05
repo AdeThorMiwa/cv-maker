@@ -1,4 +1,5 @@
 export { default as LandingView } from "./Landing";
+export { default as TemplatesView } from "./Templates";
 export { default as PersonalView } from "./Personal";
 export { default as ExperienceView } from "./Experience";
 export { default as ExperienceSummaryView } from "./ExperienceSummary";

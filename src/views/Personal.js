@@ -4,7 +4,6 @@ import { useContextSelector } from 'use-context-selector';
 import AppContext from "../context/App";
 import { UPDATE_PERSONAL } from "../context/Types";
 import { useEffect } from "react";
-import { handleFormChange } from "../utils/form";
 
 const formItemLayout = {
     labelCol: { span: 24 },
@@ -17,7 +16,12 @@ const Personal = () => {
     const [form] = Form.useForm();
     const personal = useContextSelector(AppContext, ctx => ctx.appState.personal);
     const dispatch = useContextSelector(AppContext, ctx => ctx.dispatch);
-    const onChange = handleFormChange(dispatch);
+    const onChange = () => {
+        dispatch({
+            type: UPDATE_PERSONAL,
+            payload: form.getFieldsValue(true)
+        });
+    }
 
 
     useEffect(() => {
@@ -160,7 +164,7 @@ const Personal = () => {
                                                         <Form.Item
                                                             {...field}
                                                             name={[field.name, 'website']}
-                                                            fieldKey={[field.fieldKey, 'link']}
+                                                            fieldKey={[field.fieldKey, 'website']}
                                                             rules={[{ required: true, message: 'Missing Social website' }]}
                                                         >
                                                             <Input placeholder="Social Website" />
@@ -175,7 +179,10 @@ const Personal = () => {
                                                         >
                                                             <Input placeholder="Social Link" />
                                                         </Form.Item>
-                                                        <MinusCircleOutlined className="remove-social" onClick={() => remove(field.name)} />
+                                                        <MinusCircleOutlined className="remove-social" onClick={() => {
+                                                            remove(field.name);
+                                                            onChange()
+                                                        }} />
                                                     </Col>
                                                 </Row>
                                             ))}

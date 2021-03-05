@@ -41,12 +41,10 @@ const Skills = () => {
     }
 
     useEffect(() => {
-        return () => {
-            dispatch({
-                type: UPDATE_SKILLS,
-                payload: skills.filter(skill => skill.title.trim().length)
-            })
-        }
+        dispatch({
+            type: UPDATE_SKILLS,
+            payload: skills.filter(skill => skill.title.trim().length)
+        })
     }, [skills, dispatch]);
 
 

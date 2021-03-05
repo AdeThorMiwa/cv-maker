@@ -17,7 +17,7 @@ const Landing = ({ history }) => {
                     </Col>
                     <Col span="12">
                         <img alt="..." className="illustration" src={CreateSvg} />
-                        <Button block type="primary" onClick={() => history.push("/personal")} danger>Create My CV</Button>
+                        <Button block type="primary" onClick={() => history.push("/select-template")} danger>Create My CV</Button>
                     </Col>
                 </Row>
             </div>

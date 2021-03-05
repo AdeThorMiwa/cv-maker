@@ -1,20 +1,25 @@
 import { Button, message } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 import { PageTitle, RenderTemplate } from "./../components";
-import HtmlToCanvas from "html2canvas";
-import axios from "axios";
 import useMedia from "../hooks/useMedia";
 import { useState } from "react";
+import AppContext from "../context/App";
+import { useContextSelector } from 'use-context-selector';
+import { compileToParsableHTML } from "./../utils/template";
+import agent from "./../utils/agent";
 
 const Preview = () => {
     const [loading, setLoading] = useState(false);
+    const appState = useContextSelector(AppContext, ctx => ctx.appState);
+
     const saveAsPdf = async () => {
         setLoading(true);
-        const template = document.querySelector("#template-box");
         try {
-            const canvas = await HtmlToCanvas(template);
-            const dataUrl = canvas.toDataURL('image/png');
-            const res = await axios.post("/template/toPdf", JSON.stringify({ blob: dataUrl }), { headers: { "Content-Type": "application/json" } })
+            const res = await agent.post(
+                "/template/v1/toPdf",
+                JSON.stringify({ html: compileToParsableHTML(appState.selectedTemplate, appState) })
+            )
+
             window.downloadFile(res.data.downloadLink);
             message.info("Download will begin in a bit...")
         } catch (e) {
@@ -32,7 +37,7 @@ const Preview = () => {
                 <Button loading={loading} type="primary" onClick={saveAsPdf} icon={sm && <DownloadOutlined />} danger> {sm ? "" : "Download as PDF"} </Button>
             </div>
             <div className="mt">
-                <RenderTemplate />
+                <RenderTemplate appState={appState} />
             </div>
         </div>
     )
