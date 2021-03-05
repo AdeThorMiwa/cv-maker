@@ -6,7 +6,7 @@ const Main = ({ children }) => {
             <Layout.Header className="header">
                 <Row>
                     <Col lg={{ offset: 4 }}>
-                        <h1>Builder</h1>
+                        <h1>Buildr</h1>
                     </Col>
                 </Row>
             </Layout.Header>

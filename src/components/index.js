@@ -4,3 +4,4 @@ export { default as ExperienceCard } from "./ExperienceCard";
 export { default as EducationCard } from "./EducationCard";
 export { default as RenderTemplate } from "./RenderTemplate";
 export { default as PageTitle } from "./PageTitle";
+export { default as DoneButton } from "./DoneButton";

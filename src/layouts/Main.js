@@ -29,7 +29,7 @@ const Main = ({ children, current, hasSidebar = false }) => {
                 <Row>
                     <Col span={breakpoint ? 24 : 2} lg={{ offset: 2 }} xl={{ offset: 4 }} sm={{ offset: 0 }} md={{ offset: 0 }} style={{ position: "relative" }}>
                         {breakpoint && hasSidebar && <MenuOutlined style={{ position: "absolute", top: 25 }} onClick={() => dispatch({ type: OPEN_SIDEBAR })} />}
-                        <Link to="/"><h1 style={{ textAlign: breakpoint ? "center" : "left" }}>Builder</h1></Link>
+                        <Link to="/"><h1 style={{ textAlign: breakpoint ? "center" : "left" }}>Buildr</h1></Link>
                     </Col>
                     {!breakpoint && (
                         <Col flex="auto" md={{ flex: "auto", offset: 1 }} lg={{ span: 18, offset: 1 }} xl={{ offset: 4, span: 16 }}>

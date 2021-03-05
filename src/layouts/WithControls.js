@@ -2,8 +2,14 @@ import { Row, Col, Button } from "antd";
 import { useHistory } from "react-router-dom";
 import MainLayout from "./Main";
 
-const WithControl = ({ children, leftAction = null, rightText = "NEXT", rightAction = null, isPreview = false, ...rest }) => {
+const WithControl = ({ children, leftAction = null, right, rightText = "NEXT", rightAction = null, isPreview = false, ...rest }) => {
     const history = useHistory();
+
+    const hasRight = !!right;
+    let Right;
+    if (hasRight) {
+        Right = right;
+    }
 
     let leftAttrib;
     let rightAttrib;
@@ -27,14 +33,16 @@ const WithControl = ({ children, leftAction = null, rightText = "NEXT", rightAct
                         BACK
                     </Button>
                 </Col>
-                <Col {...rightAttrib}>
-                    <Button
-                        className="big-button"
-                        type="danger"
-                        onClick={() => rightAction ? rightAction() : console.log("No Next Action...")}>
-                        {rightText}
-                    </Button>
-                </Col>
+                {hasRight ? <Right /> : (
+                    <Col {...rightAttrib}>
+                        <Button
+                            className="big-button"
+                            type="danger"
+                            onClick={() => rightAction ? rightAction() : console.log("No Next Action...")}>
+                            {rightText}
+                        </Button>
+                    </Col>
+                )}
             </Row>
         </MainLayout>
     );

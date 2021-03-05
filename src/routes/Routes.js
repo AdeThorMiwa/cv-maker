@@ -1,6 +1,4 @@
 import { Switch, useHistory } from "react-router-dom";
-import { useContextSelector } from 'use-context-selector';
-import AppContext from "../context/App";
 import {
     LandingView,
     TemplatesView,
@@ -15,13 +13,13 @@ import {
     PreviewView
 } from "../views";
 import {
-    Intro
+    Intro,
+    DoneButton
 } from "../components";
 import WithLayout, { BlankLayout, WithSidebarLayout, WithPreviewLayout, WithControlsLayout } from "../layouts";
 
 const Routes = () => {
     const history = useHistory();
-    const dispatch = useContextSelector(AppContext, ctx => ctx.dispatch);
 
     return (
         <Switch>
@@ -191,12 +189,8 @@ const Routes = () => {
                 component={PreviewView}
                 path="/preview"
                 hasSidebar={true}
-                rightText="DONE!"
                 current={6}
-                rightAction={() => {
-                    dispatch({ type: "DONE" });
-                    window.location.href = "/";
-                }}
+                right={DoneButton}
             />
         </Switch>
     );
