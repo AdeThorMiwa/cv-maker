@@ -4,9 +4,11 @@ import Parser from "react-html-parser";
 const RenderTemplate = ({ appState, size = "lg" }) => {
     let style = {};
     if (size === "sm") {
-        style.zoom = 0.45;
+        style.zoom = 0.6;
         style.width = "650px";
         style.maxWith = "100%";
+    } else {
+        style.zoom = 1.4
     }
 
     return (
