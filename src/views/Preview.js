@@ -17,7 +17,7 @@ const Preview = () => {
         try {
             const res = await agent.post(
                 "/template/v1/toPdf",
-                JSON.stringify({ html: compileToParsableHTML(appState.selectedTemplate, appState) })
+                JSON.stringify({ html: compileToParsableHTML(appState.selectedTemplate, { ...appState, stripDefault: true }) })
             )
 
             window.downloadFile(res.data.downloadLink);

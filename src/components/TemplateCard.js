@@ -55,7 +55,7 @@ const TemplateCard = () => {
                         <Card
                             hoverable
                             style={{ width: 240 }}
-                            cover={<img alt={data.name} src={data.thumbnail} />}
+                            cover={<img alt={data.name} style={{ height: 300 }} src={data.thumbnail} />}
                         >
                             <Card.Meta title={data.name} />
                         </Card>

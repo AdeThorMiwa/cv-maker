@@ -85,11 +85,17 @@ const registerHelpers = () => {
         return parent[key]
     })
 
-    Handlebars.registerHelper("useDefaultIfNoValue", (value, defaultValue) => {
+    Handlebars.registerHelper("useDefaultIfNoValue", (value, defaultValue, stripDefault = false) => {
+        if (stripDefault) {
+            return value && value.length ? value : ""
+        }
         return value && value.length ? value : defaultValue;
     });
 
-    Handlebars.registerHelper("useDefaultIfNoArrayValue", (array, defaultArray = "skills") => {
+    Handlebars.registerHelper("useDefaultIfNoArrayValue", (array, defaultArray = "skills", stripDefault = false) => {
+        if (stripDefault) {
+            return array && array.length ? array : []
+        }
         return array && array.length ? array : getDefaultData(defaultArray);
     });
 
@@ -102,6 +108,7 @@ const registerHelpers = () => {
     Handlebars.registerHelper("valueGreaterThanOrEquals", (value, greaterThan) => value >= greaterThan);
 
     Handlebars.registerHelper("underscoreToString", value => underscoreToCapitalize(value))
+    Handlebars.registerHelper("ratingsToPercent", rating => (rating * 20) + "%")
 }
 
 export const compileToParsableHTML = (templateString = "", values = {}) => {
